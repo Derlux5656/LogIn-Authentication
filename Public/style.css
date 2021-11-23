@@ -12,5 +12,9 @@ body{
 
 .SignIn{
     font-size: 40px;
-   
+}
+
+.EmailError{
+    color: red;
+    text-align: start;
 }

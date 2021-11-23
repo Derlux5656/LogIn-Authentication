@@ -1,16 +1,16 @@
 <%- include('head'); -%>
-    <form action="" method="post">
-     
+    <form action="/signup" method="post">
+
             <h1 class="SignIn">Sign Up</h1>
         
             <div class="form-floating Input">
-              <input type="Email" class="form-control"  placeholder="name@example.com" name="SignUpEmail">
-              <label for="floatingInput">Put Your Email</label>
+              <input type="Email" class="form-control email"  placeholder="name@example.com" name="SignUpEmail">
+              <label for="floatingInput">Email</label>
             </div>
 
             <div class="form-floating Input">
-                <input type="Email" class="form-control"  placeholder="name@example.com" name="ComfirmedEmail">
-                <label for="floatingInput">Comfirm Email</label>
+                <input type="Email" class="form-control comfirmedEmail"  placeholder="name@example.com" name="ComfirmedEmail">
+                <label for="floatingInput">Confirm your Email</label>
               </div>
 
 
@@ -32,6 +32,9 @@
           <p class="mt-5 mb-3 text-muted">©2021</p>
           
     </form>
+ 
+    <p class="EmailError"><%= EmailError%></p>
+
 
     <%- include('footer'); -%>
 
