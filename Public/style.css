@@ -16,5 +16,5 @@ body{
 
 .EmailError{
     color: red;
-    text-align: start;
+    margin: 10% 0;
 }
