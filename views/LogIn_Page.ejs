@@ -1,0 +1,38 @@
+<%- include('head'); -%>
+          <form action="" method="post">
+
+            <h1 class="SignIn">Please sign in</h1>
+        
+            <div class="form-floating Input">
+              <input type="Email" class="form-control"  placeholder="name@example.com" name="SignInEmail">
+              <label for="floatingInput">Email</label>
+            </div>
+
+
+            <div class="form-floating Input">
+              <input type="password" class="form-control" placeholder="Password" name="SignInPassword">
+              <label for="floatingPassword">Password</label>
+            </div>
+
+        
+            <div class="checkbox mb-3">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+
+            <div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+          </div>
+
+          </form>
+
+          <div>
+            <label for="" class="SignUp">If you alredy don't have an account <a href="/signup">Sign Up</a></label>
+          </div>
+
+          <p class="mt-5 mb-3 text-muted">©2021</p>
+
+<%- include('footer'); -%>
+          
+        

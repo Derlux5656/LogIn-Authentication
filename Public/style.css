@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+    width: 40%;
+    margin: 15% 30%;
+}
+.Input, .SignUp{
+    margin: 4% 0 0 0;
+}
+.checkbox{
+    margin: 1% 0 0 0;
+}
+
+.SignIn{
+    font-size: 40px;
+   
+}
