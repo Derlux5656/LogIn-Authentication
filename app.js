@@ -14,6 +14,7 @@ app.use( "/Public", express.static('Public'));
 
 
 const mongoose = require('mongoose');
+const { render } = require('ejs');
 mongoose.connect('mongodb://localhost:27017/LogInAuthentication');
 
 const PersonalData = mongoose.model('userdata', { 
@@ -30,13 +31,6 @@ const PersonalData = mongoose.model('userdata', {
 
 const PutYourEmailAgain = [];
 
-const FirstUser = new PersonalData({
-  email: "drverushi@gmail.com",
-  password: "taqi",
-})
-
-
-
 app.get("/", (req,res)=>{
 
  res.render('LogIn_Page');
@@ -44,15 +38,32 @@ app.get("/", (req,res)=>{
 })
 
 app.post("/", (req,res)=>{
+
+  const Email = req.body.Email;
+  const Password = req.body.Password;
+
+
+  PersonalData.find({email: Email,password: Password}, (err, Items)=>{
+    if(err){
+      console.log(err)
+    } else{
+      if(Items.length == 1){
+        console.log(Items);
+        res.send("You have successfully signed in");
+      } else{
+        console.log("Error")
+      }
+    }
+  })
+
     
 })
 
+
+
 app.get("/signup", (req,res)=>{
  res.render("SignUp" ,{EmailError: PutYourEmailAgain});
-
 })
-
-
 
 
 app.post("/signup", (req,res)=>{
@@ -68,8 +79,8 @@ app.post("/signup", (req,res)=>{
        email: email,
        password: password 
     })
-    PersonalData.insertMany[User];
-
+     User.save();
+     
     res.redirect("/");
   } else{
 
@@ -80,6 +91,15 @@ app.post("/signup", (req,res)=>{
     res.redirect('/signup')
   }
 })
+
+// Data Delete
+// PersonalData.deleteOne({password: "taqi"},(err)=>{
+//   if(err){
+//     console.log(err)
+//   } else{
+//     console.log("Successfully Deleted");
+//   }
+// })
 
 
 app.listen(port, function(){
