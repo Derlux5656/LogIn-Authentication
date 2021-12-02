@@ -17,6 +17,8 @@ const mongoose = require('mongoose');
 const { render } = require('ejs');
 mongoose.connect('mongodb://localhost:27017/LogInAuthentication');
 
+
+
 const PersonalData = mongoose.model('userdata', { 
   email: {
     type: String,
@@ -30,33 +32,35 @@ const PersonalData = mongoose.model('userdata', {
 
 
 const PutYourEmailAgain = [];
+const SignInErrors = [];
 
 app.get("/", (req,res)=>{
-
- res.render('LogIn_Page');
+ res.render('LogIn_Page', {ErrorMessage: SignInErrors});
 
 })
 
-app.post("/", (req,res)=>{
 
+app.post("/", (req,res)=>{
   const Email = req.body.Email;
   const Password = req.body.Password;
-
+  const ErrorMessage = "Please Put again your email and password"
 
   PersonalData.find({email: Email,password: Password}, (err, Items)=>{
     if(err){
       console.log(err)
     } else{
-      if(Items.length == 1){
+          if(Items.length == 1){
         console.log(Items);
         res.send("You have successfully signed in");
-      } else{
-        console.log("Error")
+           }else{
+        console.log("Error");
+              if(SignInErrors.length === 0){
+        SignInErrors.push(ErrorMessage);
+             }
+        res.redirect("/");
       }
     }
   })
-
-    
 })
 
 

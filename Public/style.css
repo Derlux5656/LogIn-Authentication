@@ -18,3 +18,8 @@ body{
     color: red;
     margin: 10% 0;
 }
+
+.errorMessage{
+margin: 2% 0 0 0;
+color: red;
+}
