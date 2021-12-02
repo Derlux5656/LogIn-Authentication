@@ -6,6 +6,7 @@ const request = require("https");
 
 const app = express();
 const port = process.env.PORT || 3000;
+const url = "https://www.altiniinfotech.com/"
 
 
 app.set('view engine', 'ejs');
@@ -39,7 +40,6 @@ app.get("/", (req,res)=>{
 
 })
 
-
 app.post("/", (req,res)=>{
   const Email = req.body.Email;
   const Password = req.body.Password;
@@ -51,7 +51,11 @@ app.post("/", (req,res)=>{
     } else{
           if(Items.length == 1){
         console.log(Items);
-        res.send("You have successfully signed in");
+        res.writeHead(302, {
+          location: url,
+        });
+        res.end();
+
            }else{
         console.log("Error");
               if(SignInErrors.length === 0){
@@ -62,7 +66,6 @@ app.post("/", (req,res)=>{
     }
   })
 })
-
 
 
 app.get("/signup", (req,res)=>{
@@ -95,16 +98,6 @@ app.post("/signup", (req,res)=>{
     res.redirect('/signup')
   }
 })
-
-// Data Delete
-// PersonalData.deleteOne({password: "taqi"},(err)=>{
-//   if(err){
-//     console.log(err)
-//   } else{
-//     console.log("Successfully Deleted");
-//   }
-// })
-
 
 app.listen(port, function(){
   console.log(`Example app listening at http://localhost:${port}`);
