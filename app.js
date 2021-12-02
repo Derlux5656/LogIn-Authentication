@@ -6,7 +6,11 @@ const request = require("https");
 
 const app = express();
 const port = process.env.PORT || 3000;
-const url = "https://www.altiniinfotech.com/"
+const url = "https://www.altiniinfotech.com/";
+
+const {
+  performance
+} = require('perf_hooks');
 
 
 app.set('view engine', 'ejs');
@@ -14,9 +18,11 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use( "/Public", express.static('Public'));      
 
 
+
 const mongoose = require('mongoose');
 const { render } = require('ejs');
 mongoose.connect('mongodb://localhost:27017/LogInAuthentication');
+
 
 
 
@@ -43,7 +49,7 @@ app.get("/", (req,res)=>{
 app.post("/", (req,res)=>{
   const Email = req.body.Email;
   const Password = req.body.Password;
-  const ErrorMessage = "Please Put again your email and password"
+  const ErrorMessage = "Please put your email and password again."
 
   PersonalData.find({email: Email,password: Password}, (err, Items)=>{
     if(err){
@@ -66,7 +72,6 @@ app.post("/", (req,res)=>{
     }
   })
 })
-
 
 app.get("/signup", (req,res)=>{
  res.render("SignUp" ,{EmailError: PutYourEmailAgain});
@@ -98,6 +103,10 @@ app.post("/signup", (req,res)=>{
     res.redirect('/signup')
   }
 })
+
+
+let t1 = performance.now();
+console.log(t1);
 
 app.listen(port, function(){
   console.log(`Example app listening at http://localhost:${port}`);
