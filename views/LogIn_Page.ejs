@@ -1,43 +1,55 @@
+<div class="logInPage">
 <%- include('head'); -%>
-          <form action="/" method="post">
 
-            <h1 class="SignIn">Please sign in</h1>
+<div class="LogInForms">
+      <form action="/" method="post">
+
+        <h1 class="SignIn">Sign In</h1>
+    
+        <div class="form-floating Input">
+          <input type="Email" class="form-control"  placeholder="name@example.com" name="Email" required>
+          <label for="floatingInput">Email</label>
+        </div>
+
+
+        <div class="form-floating Input">
+          <input type="password" class="form-control" placeholder="Password" name="Password" required >
+          <label for="floatingPassword">Password</label>
+        </div>
+
+    
+        <div class="checkbox mb-3" style="margin: 2% 0 0 0;">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+
+        <div>
+        <button class="w-100 btn btn-lg btn-primary btn-dark" type="submit" >Sign In</button>
+      </div>
+
+      </form>
+
+
+      <p class="errorMessage"><%=ErrorMessage%></p>
+
+  
+      <div>
+        <label for="" class="SignUp">Don"t have an account? <a href="/signup"><b>Sign Up for free</b></a></label>
+      </div>
+  </div>
+  
+
+  </div>
+
+
+ 
+
+  
+
         
-            <div class="form-floating Input">
-              <input type="Email" class="form-control"  placeholder="name@example.com" name="Email" required>
-              <label for="floatingInput">Email</label>
-            </div>
-
-
-            <div class="form-floating Input">
-              <input type="password" class="form-control" placeholder="Password" name="Password" required >
-              <label for="floatingPassword">Password</label>
-            </div>
-
-        
-            <div class="checkbox mb-3">
-              <label>
-                <input type="checkbox" value="remember-me"> Remember me
-              </label>
-            </div>
-
-            <div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-          </div>
-
-          </form>
-
-
-          <p class="errorMessage"><%=ErrorMessage%></p>
-
-      
-          <div>
-            <label for="" class="SignUp">If you alredy don't have an account <a href="/signup">Sign Up</a></label>
-          </div>
-
-
-          <p class="mt-5 mb-3 text-muted">©2021</p>
 
 <%- include('footer'); -%>
           
-        
+</div>
+

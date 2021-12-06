@@ -8,9 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const url = "https://www.altiniinfotech.com/";
 
-const {
-  performance
-} = require('perf_hooks');
+const { performance } = require('perf_hooks');
 
 
 app.set('view engine', 'ejs');

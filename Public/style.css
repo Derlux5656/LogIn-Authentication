@@ -1,10 +1,39 @@
 body{
     text-align: center;
+}
+a{
+    color: rgb(39, 39, 39);
+}
+a:hover{
+    color: rgb(39, 39, 39);
+    font-size: 20px;
+    
+
+}
+.logInPage{
+    height: 100%; 
+    background-image: url(../Public/Images/LogInImage.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position-x: right;
+   
+}
+.logUpPage{
+    height: 100%; 
+    background-image: url(../Public/Images/signUpImage.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position-x: right;
+    
+}
+.logInForms, .signUpForms{
     width: 40%;
-    margin: 15% 30%;
+    margin: 0 10%;
+    padding: 10% 0;
+
 }
 .Input, .SignUp{
-    margin: 4% 0 0 0;
+    margin: 5% 0 0 0;
 }
 .checkbox{
     margin: 1% 0 0 0;
@@ -23,3 +52,5 @@ body{
 margin: 2% 0 0 0;
 color: red;
 }
+
+

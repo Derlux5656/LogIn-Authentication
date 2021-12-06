@@ -1,4 +1,6 @@
+<div class="logUpPage">
 <%- include('head'); -%>
+<div class="signUpForms">
     <form action="/signup" method="post">
 
             <h1 class="SignIn">Sign Up</h1>
@@ -20,23 +22,26 @@
             </div>
 
             <div class="Input">
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
+            <button class="w-100 btn btn-lg btn-primary btn-dark" type="submit">Sign Up</button>
           </div>
 
           </form>
+          
+  
 
           <div>
-            <label for="" class="SignUp">If you alredy have an account <a href="/">Sign In</a></label>
+            <label for="" class="SignUp">If you alredy have an account <a href="/"> <b>Sign In</b> </a></label>
           </div>
+          <p class="EmailError"><%= EmailError%></p>
 
-          <p class="mt-5 mb-3 text-muted">©2021</p>
-          
+  
     </form>
 
-
-    <p class="EmailError"><%= EmailError%></p>
+  </div>
 
 
     <%- include('footer'); -%>
+
+  </div>
 
     
