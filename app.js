@@ -8,8 +8,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 const url = "https://www.altiniinfotech.com/";
 
-const { performance } = require('perf_hooks');
-
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}))
@@ -25,15 +23,9 @@ mongoose.connect('mongodb://localhost:27017/LogInAuthentication');
 
 
 const PersonalData = mongoose.model('userdata', { 
-  email: {
-    type: String,
-    required: true
-  },
-  password: {
-    type: String,
-    required: true
-  }
-});
+  email: String,
+  password: String,
+  });
 
 
 const PutYourEmailAgain = [];
@@ -54,7 +46,6 @@ app.post("/", (req,res)=>{
       console.log(err)
     } else{
           if(Items.length == 1){
-        console.log(Items);
         res.writeHead(302, {
           location: url,
         });
@@ -63,7 +54,7 @@ app.post("/", (req,res)=>{
            }else{
         console.log("Error");
               if(SignInErrors.length === 0){
-        SignInErrors.push(ErrorMessage);
+              SignInErrors.push(ErrorMessage);
              }
         res.redirect("/");
       }
@@ -90,21 +81,17 @@ app.post("/signup", (req,res)=>{
        password: password 
     })
      User.save();
-     
     res.redirect("/");
+
   } else{
 
     console.log("Please put your email again");
     if(PutYourEmailAgain.length == 0){
-    PutYourEmailAgain.push("Please put your email again");
+    PutYourEmailAgain.push("Please confirm your email again");
     }
     res.redirect('/signup')
   }
 })
-
-
-let t1 = performance.now();
-console.log(t1);
 
 app.listen(port, function(){
   console.log(`Example app listening at http://localhost:${port}`);
